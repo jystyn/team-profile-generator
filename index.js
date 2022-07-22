@@ -6,11 +6,13 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+//generateHTML is required to write file
 const generateHTML = require('./src/generateHTML');
-const { clear } = require('console');
 
+//Empty array that will house the team members as they are added
 const teamArray = [];
 
+//creates manager profile and added it to teamArray, validation was added to make sure correct information is typed by the user
 const addManager = () => {
     return inquirer.prompt([
         {
@@ -71,6 +73,7 @@ const addManager = () => {
     })
 }
 
+//Creates employee profile for engineers or interns and adds them to teamArray, validation was added to make sure correct information is typed by the user
 const addEmployee = () => {
     return inquirer.prompt([
         {
@@ -168,6 +171,7 @@ const addEmployee = () => {
     })
 }
 
+//This writes team page html to index.html file
 const writePage = (html) => {
     fs.writeFile('./dist/index.html', html, err => {
 
@@ -180,6 +184,7 @@ const writePage = (html) => {
     })
 }
 
+//This initializes the app
 addManager()
     .then(addEmployee)
     .then(teamArray => {

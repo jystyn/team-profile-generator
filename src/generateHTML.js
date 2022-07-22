@@ -28,6 +28,7 @@ const generatePage = (employeeCards) => {
     `;
 };
 
+//manager card
 const addManager = (manager) => {
     return `
     <div class="card shadow-lg mt-4" style="width: 18rem;">
@@ -44,6 +45,7 @@ const addManager = (manager) => {
     `;
 };
 
+//Engineer card
 const addEngineer = (engineer) => {
     return `
     <div class="card shadow-lg mt-4" style="width: 18rem;">
@@ -59,6 +61,7 @@ const addEngineer = (engineer) => {
     </div>`;
 };
 
+//Intern card
 const addIntern = (intern) => {
     return `
     <div class="card shadow-lg mt-4" style="width: 18rem;">
@@ -74,8 +77,10 @@ const addIntern = (intern) => {
     </div>`;
 };
 
+//Empty array that compiles employee cards
 const pageArray = [];
 
+//This takes the employee cards and puts them into the pageArray, after they are all compiled, the cards are put into the pages html
 const generateHTML = (data) => {
     
     for (let i = 0; i < data.length; i++) {
@@ -102,11 +107,9 @@ const generateHTML = (data) => {
     };
 
     const employeeCards = pageArray.join('');
-
     const generateTeamPage = generatePage(employeeCards);
+    
     return generateTeamPage;
-
-
 }
 
 module.exports = generateHTML;
