@@ -1,6 +1,6 @@
 
 //Starting HTML
-const generatePage = function (employeeCards) {
+const generatePage = (employeeCards) => {
     return `
     <html lang="en">
     <head>
@@ -28,7 +28,7 @@ const generatePage = function (employeeCards) {
     `;
 };
 
-const addManager = function (manager) {
+const addManager = (manager) => {
     return `
     <div class="card shadow-lg mt-4" style="width: 18rem;">
         <div class="card-header bg-secondary text-white">
@@ -44,7 +44,7 @@ const addManager = function (manager) {
     `;
 };
 
-const addEngineer = function (engineer) {
+const addEngineer = (engineer) => {
     return `
     <div class="card shadow-lg mt-4" style="width: 18rem;">
         <div class="card-header bg-secondary text-white">
@@ -59,7 +59,7 @@ const addEngineer = function (engineer) {
     </div>`;
 };
 
-const addIntern = function (intern) {
+const addIntern = (intern) => {
     return `
     <div class="card shadow-lg mt-4" style="width: 18rem;">
         <div class="card-header bg-secondary text-white">
@@ -73,3 +73,41 @@ const addIntern = function (intern) {
         </ul>
     </div>`;
 };
+
+const pageArray = [];
+
+generateHTML = (data) => {
+    
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+
+        if (role === 'Manager') {
+            const managerCard = addManager(employee);
+
+            pageArray.push(managerCard);
+        }
+
+        if (role === 'Engineer') {
+            const engineerCard = addEngineer(employee);
+
+            pageArray.push(engineerCard);
+        }
+
+        if (role === 'Intern') {
+            const internCard = addIntern(employee);
+
+            pageArray.push(internCard);
+        }
+    };
+
+    const employeeCards = pageArray.join('');
+
+    const generateTeamPage = generatePage(employeeCards);
+    console.log(generateTeamPage);
+    return generateTeamPage;
+
+
+}
+
+module.exports = generateHTML;
