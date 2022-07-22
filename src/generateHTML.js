@@ -38,7 +38,7 @@ const addManager = (manager) => {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${manager.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
-            <li class="list-group-item">${manager.officeNumber}</li>
+            <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
         </ul>
     </div>
     `;
@@ -69,14 +69,14 @@ const addIntern = (intern) => {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${intern.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
-            <li class="list-group-item">School: </li>
+            <li class="list-group-item">School: ${intern.school}</li>
         </ul>
     </div>`;
 };
 
 const pageArray = [];
 
-generateHTML = (data) => {
+const generateHTML = (data) => {
     
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
@@ -104,7 +104,6 @@ generateHTML = (data) => {
     const employeeCards = pageArray.join('');
 
     const generateTeamPage = generatePage(employeeCards);
-    console.log(generateTeamPage);
     return generateTeamPage;
 
 

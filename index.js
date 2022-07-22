@@ -33,9 +33,6 @@ const addManager = () => {
         const manager = new Manager (name, id, email, officeNumber);
 
         teamArray.push(manager);
-        console.log(manager);
-        console.log(teamArray);
-
     })
 }
 
@@ -73,7 +70,6 @@ const addEmployee = () => {
             name: 'confirmAddEmployee',
             message: "Would you like to add more members to the team?",
             default: false
-            
         }
     ]).then(employeeData => {
         let {name, id, email, role, github, school, confirmAddEmployee} = employeeData;
@@ -81,16 +77,13 @@ const addEmployee = () => {
 
         if (role === "Engineer") {
             employee = new Engineer (name, id, email, github);
-            console.log(employee);
         } else if (role === "Intern") {
             employee = new Intern (name, id, email, school);
-            console.log(employee);
         }
 
         teamArray.push(employee);
 
         if (confirmAddEmployee) {
-            console.log(teamArray)
             return addEmployee(teamArray);
         } else {
             console.log(teamArray)
@@ -99,5 +92,27 @@ const addEmployee = () => {
     })
 }
 
+const writePage = (html) => {
+    fs.writeFile('./dist/index.html', html, err => {
+
+        if(err) {
+            console.log(err);
+            return;
+        } else {
+            console.log('You have successfully created team page! Check out the html.index file in /dist');
+        }
+    })
+}
+
+
 addManager()
   .then(addEmployee)
+  .then(teamArray => {
+    return generateHTML(teamArray);
+  })
+  .then(html => {
+    return writePage(html);
+  })
+  .catch(err => {
+    console.log(err);
+  })
