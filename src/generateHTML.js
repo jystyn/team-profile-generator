@@ -2,6 +2,7 @@
 //Starting HTML
 const generatePage = (employeeCards) => {
     return `
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -22,7 +23,6 @@ const generatePage = (employeeCards) => {
             ${employeeCards}    
         </div>
     </body>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/283ba5099d.js" crossorigin="anonymous"></script>
     </html>
     `;

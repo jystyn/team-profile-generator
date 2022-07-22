@@ -1,7 +1,7 @@
 //node modules
 const inquirer = require('inquirer');
 const fs = require('fs');
-//Team member
+//Team members
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
