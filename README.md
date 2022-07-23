@@ -23,8 +23,6 @@
 
   -- [Usage](#Usage)
 
-  -- [Contribution](#Contributing)
-
   -- [Test](#Test)
 
   -- [License](#License)
@@ -50,12 +48,6 @@
   https://user-images.githubusercontent.com/106487718/180578834-411a7146-1165-44f7-a3df-62c367483294.mp4
   
   ![team-profile-generator-screenshot](./lib/team-profile-generator-screenshot.png)
-
-  ## Contributing
-
-
-  N/A
-
 
   ## Test
 
